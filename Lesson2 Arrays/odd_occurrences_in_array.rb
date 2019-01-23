@@ -14,17 +14,19 @@ https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
 
 require 'minitest/autorun'
 
-# 配列を走査し、数ごとにカウントしたハッシュを作る。
-# ハッシュの値をチェックし、奇数があればそれを返す。
+# ハッシュを使ってチェック表を作る。なければキーを作成、あればキーを削除。
+# 最終的にキーが1つだけ残っているはずなのでその値を返す
 def solution(a)
-  h = Hash.new(0)
+  h = {}
   a.each do |v|
-    h[v.to_s] += 1
+    if h.has_key?(v)
+      h.delete(v)
+    else
+      h[v] = 1
+    end
   end
 
-  h.each do |key, val|
-    return key.to_i if val.odd?
-  end
+  h.keys.first.to_i
 end
 
 class OddOccurrencesInArrayTest < Minitest::Test
