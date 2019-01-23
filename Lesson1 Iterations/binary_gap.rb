@@ -7,13 +7,9 @@ https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
 
 require 'minitest/autorun'
 
+# 1に囲まれている0を正規表現で探す
 def solution(n)
-  # 1に囲まれている0を正規表現で探す
-  if /1(?<zero_seq>0+)1/ =~ n.to_s(2)
-    zero_seq.to_s.length
-  else
-    0
-  end
+  /1(?<zero_seq>0+)1/ =~ n.to_s(2) ? zero_seq.to_s.length : 0
 end
 
 class BinaryGapTest < Minitest::Test
