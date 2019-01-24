@@ -8,7 +8,7 @@ https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
 require 'minitest/autorun'
 
 def solution(a, k)
-  return a
+  a.rotate(-k)
 end
 
 class CyclicRotationTest < Minitest::Test
