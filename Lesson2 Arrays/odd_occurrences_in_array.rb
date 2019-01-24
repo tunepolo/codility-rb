@@ -5,13 +5,6 @@ Find value that occurs in odd number of elements.
 https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_array/
 =end
 
-=begin
-BinaryGap
-Find longest sequence of zeros in binary representation of an integer.
-
-https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
-=end
-
 require 'minitest/autorun'
 
 # ハッシュを使ってチェック表を作る。なければキーを作成、あればキーを削除。
