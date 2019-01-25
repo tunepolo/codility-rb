@@ -9,7 +9,7 @@ require 'minitest/autorun'
 
 # 同じ値のXORは0になるため、配列の全ての数に対して順にXORをとるとペアにならない数が残す
 def solution(a)
-  a.reduce(0){ |acc, val| acc ^ val }
+  a.reduce(:^)
 end
 
 class OddOccurrencesInArrayTest < Minitest::Test
