@@ -7,19 +7,9 @@ https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_array/
 
 require 'minitest/autorun'
 
-# ハッシュを使ってチェック表を作る。なければキーを作成、あればキーを削除。
-# 最終的にキーが1つだけ残っているはずなのでその値を返す
+# 同じ値のXORは0になるため、配列の全ての数に対して順にXORをとるとペアにならない数が残す
 def solution(a)
-  h = {}
-  a.each do |v|
-    if h.has_key?(v)
-      h.delete(v)
-    else
-      h[v] = 1
-    end
-  end
-
-  h.keys.first.to_i
+  a.reduce(0){ |acc, val| acc ^ val }
 end
 
 class OddOccurrencesInArrayTest < Minitest::Test
