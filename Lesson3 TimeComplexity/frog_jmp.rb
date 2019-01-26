@@ -6,7 +6,8 @@ Count minimal number of jumps from position X to Y.
 require 'minitest/autorun'
 
 def solution(x, y, d)
-  return 3
+  quo, mod = (y-x).divmod(d)
+  mod == 0 ? quo : quo+1
 end
 
 class FrogJmpTest < Minitest::Test
