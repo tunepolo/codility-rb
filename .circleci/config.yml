@@ -12,7 +12,9 @@ jobs:
       name: default
     steps:
       - checkout
-      - run: ruby **/*.rb
+      - run:
+          name: Run **/*.rb files
+          command: ruby **/*.rb
 
 workflows:
   continuous-integration:
