@@ -1,0 +1,22 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/ruby:2.6.1
+
+jobs:
+  minitest:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run:
+          name: Run **/*.rb files
+          command: ruby **/*.rb
+
+workflows:
+  continuous-integration:
+    jobs:
+      - minitest
