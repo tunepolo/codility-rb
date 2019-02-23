@@ -6,7 +6,7 @@ Find the missing element in a given permutation.
 require 'minitest/autorun'
 
 def solution(a)
-  4
+  ((1..a.max).to_a - a).first
 end
 
 class PermMissingElemTest < Minitest::Test
