@@ -6,9 +6,12 @@ Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|.
 require 'minitest/autorun'
 
 def solution(a)
-  min_sum_sub = 100000
-  (1...a.length).each do |p_val|
-    sum_sub = (a[0...p_val].sum - a[p_val..-1].sum).abs
+  left_sum, right_sum = a[0], a[1..-1].sum
+  min_sum_sub = (left_sum - right_sum).abs
+  a[1..-1].each do |a_val|
+    left_sum += a_val
+    right_sum -= a_val
+    sum_sub = (left_sum - right_sum).abs
     if sum_sub < min_sum_sub
       min_sum_sub = sum_sub
     end
