@@ -13,8 +13,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run **/*.rb files
-          command: ruby **/*.rb
+          name: Run all Ruby files
+          command: find . -name "*.rb" -print0 | xargs -0 -I@ sh -c 'ruby @'
 
 workflows:
   continuous-integration:
