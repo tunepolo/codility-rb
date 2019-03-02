@@ -9,7 +9,8 @@ require 'minitest/autorun'
 
 # 1に囲まれている0を正規表現で探す
 def solution(n)
-  /1(?<zero_seq>0+)1/ =~ n.to_s(2) ? zero_seq.to_s.length : 0
+  list = n.to_s(2).scan(/1(0+)(?=1)/).flatten.map(&:length)
+  list.empty? ? 0 : list.max
 end
 
 class BinaryGapTest < Minitest::Test
