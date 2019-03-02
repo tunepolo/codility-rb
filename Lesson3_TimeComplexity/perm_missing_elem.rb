@@ -7,12 +7,12 @@ require 'minitest/autorun'
 
 # 配列同士の引き算で要素を探す
 def solution(a)
-  ((1..a.max).to_a - a).first
+  ((1..(a.length+1)).to_a - a).first
 end
 
 # 配列内の値の和を引き算することで要素を探す
 def solution2(a)
-  (1..a.max).sum - a.sum
+  (1..(a.length+1)).sum - a.sum
 end
 
 class PermMissingElemTest < Minitest::Test
@@ -25,6 +25,8 @@ class PermMissingElemTest < Minitest::Test
     a = (1..ARRAY_SIZE_MAX).to_a.shuffle
     answer = a.shift
     assert_equal answer, solution(a)
+
+    assert_equal 2, solution([1])
   end
 
   def test_solution2
@@ -34,5 +36,7 @@ class PermMissingElemTest < Minitest::Test
     a = (1..ARRAY_SIZE_MAX).to_a.shuffle
     answer = a.shift
     assert_equal answer, solution(a)
+
+    assert_equal 2, solution([1])
   end
 end
