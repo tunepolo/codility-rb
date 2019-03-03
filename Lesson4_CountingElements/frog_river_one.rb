@@ -6,18 +6,22 @@ Find the earliest time when a frog can jump to the other side of a river.
 require 'minitest/autorun'
 
 def solution(x, a)
-  earliest_time = -1
-  position_log = Array.new(x, 0)
+  position_log = Array.new(x+1, 0)
+  position_log_sum = 0
 
   a.each_with_index do |pos, index|
-    position_log[pos] = 1
-    if position_log.sum == x
-      earliest_time = index
-      break
+    position_log
+    if position_log[pos] == 0
+      position_log[pos] = 1
+      position_log_sum += 1
+    end
+
+    if position_log_sum == x
+      return index
     end
   end
 
-  return earliest_time
+  return -1
 end
 
 class FrogRiverOneTest < Minitest::Test
