@@ -17,7 +17,7 @@ def solution(a)
     end
   end
 
-  return west
+  return west <= 1_000_000_000 ? west: -1
 end
 
 class PassingCarsTest < Minitest::Test
