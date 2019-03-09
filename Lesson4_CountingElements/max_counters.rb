@@ -8,18 +8,32 @@ require 'minitest/autorun'
 
 def solution(n, a)
   counter = Array.new(n, 0)
-  max_value = 0
+  current_max_value = 0
+  last_reset_max_value = 0
   reset_value = n+1
 
   a.each do |value|
     counter_index = value - 1
+
     if value != reset_value
+      if counter[counter_index] < last_reset_max_value
+        counter[counter_index] = last_reset_max_value
+      end
+
       counter[counter_index] += 1
-      if counter[counter_index] > max_value
-        max_value = counter[counter_index]
+      if counter[counter_index] > current_max_value
+        current_max_value = counter[counter_index]
       end
     else
-      counter = Array.new(n, max_value)
+      last_reset_max_value = current_max_value
+    end
+
+     counter
+  end
+
+  counter.each_with_index do |value, index|
+    if value < last_reset_max_value
+      counter[index] = last_reset_max_value
     end
   end
 
