@@ -5,15 +5,24 @@ Find the minimal average of any slice containing at least two elements.
 
 require 'minitest/autorun'
 
+class Array
+  def sum
+    reduce(:+)
+  end
+
+  def average
+    sum.to_f / size
+  end
+end
+
 def solution(a)
-  min_avg = (a[0] + a[1]) / 2.0
+  min_avg = a[0..1].average
   min_avg_index = 0
 
   (1...a.length-1).each do |index|
     # 2要素の場合と3要素の場合を確認する
     (1..2).each do |slice_size|
-      slice = a[index .. index+slice_size]
-      avg = slice.inject(0.0) { |sum, val| sum + val } / slice.length
+      avg = a[index .. index+slice_size].average
 
       # puts("index:#{index}, min_avg:#{min_avg}, slice:#{slice}, avg:#{avg}")
 
