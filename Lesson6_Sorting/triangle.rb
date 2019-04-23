@@ -6,8 +6,7 @@ Determine whether a triangle can be built from a given set of edges.
 require 'minitest/autorun'
 
 def solution(a)
-  a.select{|v| v > 0}.sort.combination(3).each do |arr|
-    p, q, r = arr
+  a.select{|v| v > 0}.sort.each_cons(3).each do |p, q, r|
     if p + q > r then
       return 1
     end
