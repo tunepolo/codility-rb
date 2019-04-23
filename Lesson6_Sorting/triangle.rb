@@ -6,9 +6,9 @@ Determine whether a triangle can be built from a given set of edges.
 require 'minitest/autorun'
 
 def solution(a)
-  a.combination(3).each do |arr|
+  a.select{|v| v > 0}.sort.combination(3).each do |arr|
     p, q, r = arr
-    if p + q > r && q + r > p && r + p > q then
+    if p + q > r then
       return 1
     end
   end
