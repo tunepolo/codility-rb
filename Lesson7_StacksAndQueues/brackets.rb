@@ -7,21 +7,15 @@ require 'minitest/autorun'
 
 def solution(s)
   stack = []
+  bracket_pair = {
+    '}' => '{',
+    ']' => '[',
+    ')' => '('
+  }
   s.each_char do |c|
-    case c
-    when '}'
+    if bracket_pair[c]
       last = stack.pop
-      if last.nil? || last != '{'
-        return 0
-      end
-    when ']'
-      last = stack.pop
-      if last.nil? || last != '['
-        return 0
-      end
-    when ')'
-      last = stack.pop
-      if last.nil? || last != '('
+      if last.nil? || last != bracket_pair[c]
         return 0
       end
     else
