@@ -6,7 +6,7 @@ Cover "Manhattan skyline" using the minimum number of rectangles.
 require 'minitest/autorun'
 
 def solution(h)
-  stack = []
+  stack = [0]
   stone_count = 0
 
   h.each do |height|
@@ -16,11 +16,11 @@ def solution(h)
     # 4. 過去に出てきた壁の高さよりも低く積む場合は石を新規に積む
 
     # 同じ高さの壁か、過去よりも低い壁を探す
-    while !stack.empty? && stack[-1] > height
+    while stack[-1] > height
       stack.pop
     end
 
-    if !stack.empty? && stack[-1] == height
+    if stack[-1] == height
       # Case 3
       next
     else
