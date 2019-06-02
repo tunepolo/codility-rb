@@ -10,7 +10,7 @@ def solution(n)
   min_perimeter = 10_000_000_000
   check_limit = Math.sqrt(n).floor
 
-  1.upto(n) do |side_1|
+  1.upto(check_limit) do |side_1|
     next if n % side_1 != 0
     side_2 = n / side_1
 
