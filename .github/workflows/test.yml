@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@ba696adf55506673e48342a66e30f1f53cadeae0
         with:
           ruby-version: 2.6
       - name: Run tests
